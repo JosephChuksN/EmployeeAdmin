@@ -1,8 +1,12 @@
 import express,{Request, Response, Application} from "express"
 const app:Application = express()
 import { connectDb } from "./db"
-
+import dotenv from "dotenv"
 import router from "./route"
+
+dotenv.config()
+
+
 const controlRoute = router
 
 const PORT = process.env.PORT || 5000
