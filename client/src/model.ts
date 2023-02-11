@@ -1,7 +1,8 @@
 export interface Data{
     firstname:string
     lastname:string
-    birthday:Date
+    phone:string
+    birthday:string
     address:string
     city:string
     zip:number
