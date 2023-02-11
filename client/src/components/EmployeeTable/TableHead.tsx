@@ -8,6 +8,7 @@ const TableHead:React.FC = () => {
     <th className="inline-block text-left w-[20%] ">Birthday</th>
     <th className="inline-block text-left w-[20%] ">Phone</th>
     <th className="inline-block text-left w-[20%] ">City</th>
+    <th className="inline-block text-left w-[20%] ">Action</th>
     
    </tr>
   )
