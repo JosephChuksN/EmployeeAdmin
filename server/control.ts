@@ -4,9 +4,9 @@ import { StatusCodes } from "http-status-codes";
 
 const createEmployee = async (req:Request, res:Response):Promise<void> =>{
     
-    const {firstname, lastname, phone, address, city, zipode} = req.body
+    const {firstname, lastname, phone,birthday, address, city, zipode} = req.body
     
-      const employee = await Employees.create({firstname, lastname, phone, address, city, zipode})
+      const employee = await Employees.create({firstname, lastname, phone, birthday, address, city, zipode})
       
       res.status(StatusCodes.CREATED).json({employee:{
         firstname:employee.firstname, 

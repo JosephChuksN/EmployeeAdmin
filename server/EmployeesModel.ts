@@ -17,6 +17,9 @@ const userSchema:Schema = new mongoose.Schema<Employee>({
         unique: true,
         required:  [true, 'Please enter a phone no.']
     },
+    birthday:{
+        type:String
+    },
     address:{
         type: String,
         required:[true, 'Please enter an address']
