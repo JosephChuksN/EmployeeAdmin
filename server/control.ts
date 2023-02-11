@@ -2,28 +2,36 @@ import { Response, Request } from "express";
 import Employees from "./EmployeesModel"
 import { StatusCodes } from "http-status-codes";
 
-const createEmployee = async (res:Response, req:Request):Promise<void> =>{
+const createEmployee = async (req:Request, res:Response):Promise<void> =>{
     
-    const {firstname, lastname, phone, address, city, zipcode} = req.body
+    const {firstname, lastname, phone, address, city, zipode} = req.body
     
-      const employee = await Employees.create(req.body)
-      res.status(StatusCodes.CREATED).json({employee})
+      const employee = await Employees.create({firstname, lastname, phone, address, city, zipode})
+      
+      res.status(StatusCodes.CREATED).json({employee:{
+        firstname:employee.firstname, 
+        lastname:employee.lastname, 
+        phone:employee.phone,
+        address:employee.address,
+        city:employee.city,
+        zipCode:employee.zipCode
+    }})
    }
    
-   const updateEmployee = async (res:Response, req:Request):Promise<void>  =>{
+   const updateEmployee = async (req:Request, res:Response):Promise<void>  =>{
     const {
      body:{firstname, lastname, phone, address, city, zipcode},
      params: {id: employeeId}
     } = req
  
     if(firstname === "" ||lastname==="" || phone==="" || address==="" || city===""){
-    res.status(StatusCodes.BAD_REQUEST).json({msg: 'link or sitename fields cannot be blank'})
+    res.status(StatusCodes.BAD_REQUEST).json({msg: 'fill all required field'})
     }
     const employee = await Employees.findByIdAndUpdate({_id:employeeId}, req.body, {new:true, runValidators:true} )
     res.status(StatusCodes.OK).json({employee})
  }
 
- const deleteEmployee =  async (res:Response, req:Request):Promise<void>  =>{
+ const deleteEmployee =  async (req:Request, res:Response):Promise<void>  =>{
     const {
         params: {id: employeeId}
        } = req
@@ -32,7 +40,7 @@ const createEmployee = async (res:Response, req:Request):Promise<void> =>{
        res.status(StatusCodes.OK).json({employee})
 }
 
-const getAllEmployees =  async (res:Response, req:Request):Promise<void> =>{
+const getAllEmployees =  async (req:Request, res:Response):Promise<void> =>{
     const employees = await Employees.find({}).sort("createdAt")
     res.status(StatusCodes.OK).json({employees})
 }
