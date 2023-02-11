@@ -19,4 +19,4 @@ const EmployeeEntry:React.FC = () => {
   )
 }
 
-export default EmployeeEntry
+export default EmployeeEntry;
