@@ -33,7 +33,7 @@ const TableData:React.FC<props> = ({data, handleEmployeeData, deleteEmployee, se
   return (
    <>
     <tr className="flex justify-between w-full p-3 border-b border-gray-900 cursor-pointer" key={data._id} onClick={()=>handleModal()}>
-        <td className="w-10 mr-3 text-center">1</td>
+        <td className="w-10 mr-3 text-center"></td>
         <td className="inline-block text-left w-[20%] capitalize" >{`${data.firstname} ${data.lastname}`}</td>
         <td className="inline-block text-left w-[20%] ">{data.birthday}</td>
         <td className="inline-block text-left w-[20%] ">{data.phone}</td>

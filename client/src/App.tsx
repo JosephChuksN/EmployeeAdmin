@@ -56,7 +56,10 @@ useEffect(()=>{
 
 
   return (
-    <div className="mx-20">
+    <div className="px-20 pt-10">
+      <div className="flex items-center justify-center">
+      <h1 className="font-semibold text-3xl text-cyan-600">Employee Admin</h1>
+      </div>
       <EmployeeEntry 
       employee={employee}
       setEmployee={setEmployee}
@@ -65,7 +68,6 @@ useEffect(()=>{
       show={show} 
      
       />
-
       <EmployeeTable  
       setEmployee={setEmployee}
       handleShowForm={handleShowForm} 

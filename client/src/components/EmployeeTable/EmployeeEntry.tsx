@@ -33,7 +33,7 @@ const handleClear = ()=>{
 }
 
   return (
-    <form  className={`mt-20 flex pt-10  flex-col transition-all delay-75 duration-300 ease-in-out ${!show ? "-translate-y-96" : ""}`}>
+    <form  className={` flex pt-10  flex-col transition-all delay-150 duration-300 ease-in-out ${show ?  "opacity-100  visible" : " opacity-0 invisible"}`}>
         <div className="flex flex-wrap gap-5 py-4">
             <input  className="shadow-md rounded-md p-2 w-[20%] focus:outline-none focus:border-cyan-500 focus:border" type="text" value={employee.firstname} name="firstname" placeholder="Firstname" onChange={(e:React.ChangeEvent)=>handleChange(e)} required />
             <input  className="shadow-md rounded-md p-2 w-[20%]  focus:outline-none focus:border-cyan-500 focus:border" type="text" value={employee.lastname}  name="lastname"  placeholder="Lastname" onChange={(e:React.ChangeEvent)=>handleChange(e)} required />

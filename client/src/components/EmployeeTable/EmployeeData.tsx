@@ -16,7 +16,7 @@ interface props{
 
 const EmployeeTable:React.FC<props> = ({handleShowForm, show, employees, handleEmployeeData, deleteEmployee, setEmployee, setId, setShow}) => {
   return (
-    <table className={` mt-20 flex items-center flex-col border border-cyan-600 rounded-md  ${!show? "-translate-y-36" : ""}`}>
+    <table className={` mt-20 flex items-center flex-col border border-cyan-600 rounded-md transition-all delay-200 duration-300 ease-in-out  ${!show? "-translate-y-36" : ""}`}>
       <thead className="w-full ">
         <TableHead />
       </thead>
@@ -34,9 +34,11 @@ const EmployeeTable:React.FC<props> = ({handleShowForm, show, employees, handleE
           
           />
         ))}
+        {employees.length < 1 &&
+     <td className="text-medium text-cyan-600 text-xl inline-block text-left w-[20%] p-5">No Employees </td>}
         
       </tbody>
-      <button onClick={()=>{handleShowForm()}} className={`${show? "hidden": "block"} absolute  -top-10 right-0 bg-cyan-600 text-white rounded-md px-3 py-1 transition-all delay-75 duration-300 ease-in-out hover:scale-110`}>Add Employee</button>
+      <button onClick={()=>{handleShowForm()}} className={`${show? "hidden": "block"} absolute  -top-10 right-0 bg-cyan-600 text-white rounded-md px-3 py-1 transition-all delay-150 duration-300 ease-in-out hover:scale-110`}>Add Employee</button>
     </table>
   )
 }
