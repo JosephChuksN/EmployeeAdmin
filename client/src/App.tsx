@@ -13,26 +13,26 @@ function App() {
 
   const getEmployees = async ():Promise<void>=>{
 
-    const {data} = await axios.get("http://localhost:5000/api/v1/employees/")
+    const {data} = await axios.get("https://employeeadmin.onrender.com/api/v1/employees/")
     const {employees} = data
     setEmployees(employees)
     
   }
 
   const addEmployee = async (employeeData:employeeData):Promise<void>=>{
-    await axios.post("http://localhost:5000/api/v1/employees/", employeeData)
+    await axios.post("https://employeeadmin.onrender.com/api/v1/employees/", employeeData)
      getEmployees()
   }
 
   const editEmployee = async (employeeData:employeeData):Promise<void>=>{
-    await axios.patch(`http://localhost:5000/api/v1/employees/${id}`, employeeData )
+    await axios.patch(`https://employeeadmin.onrender.com/api/v1/employees/${id}`, employeeData )
     await  getEmployees()
   }
 
 
 
 const deleteEmployee = async (id:string):Promise<void>=>{
-  axios.delete(`http://localhost:5000/api/v1/employees/${id}`)
+  axios.delete(`https://employeeadmin.onrender.com/api/v1/employees/${id}`)
   await getEmployees()
 
 }
