@@ -1,12 +1,13 @@
-import { Data } from "./model"
+import { data } from "./model"
 
 
-export const dummyData:Data={
+export const dummyData:data={
     firstname:"",
     lastname:"",
     phone:"",
     birthday: Date(),
     address:"",
     city:"",
-    zip:0
+    zipCode:0,
+    _id:"",
 }
