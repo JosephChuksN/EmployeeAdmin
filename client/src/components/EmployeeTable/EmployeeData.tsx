@@ -30,6 +30,7 @@ const EmployeeTable:React.FC<props> = ({handleShowForm, show, employees, handleE
           setEmployee={setEmployee}
           setId={setId}
           setShow={setShow}
+          show={show}
           
           />
         ))}
