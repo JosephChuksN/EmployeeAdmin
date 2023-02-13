@@ -10,8 +10,8 @@ interface props{
 
 const EmployeeDetailsModal:React.FC<props> = ({data, handleModal, show}) => {
   return (
-    <div onClick={()=>handleModal()} className={`backdrop-blur-[2px]  transition-all ease-in-out duration-500 justify-center ${!show? "-translate-y-20" : "translate-y-20"} items-center w-full  h-[80vh] flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none`}>
-       <div onClick={(e)=> e.stopPropagation()} className="flex flex-col w-3/5 bg-gray-50 gap-5 p-5 shadow-lg rounded-md relative">
+    <div onClick={()=>handleModal()} className={`backdrop-blur-[2px]  transition-all ease-in-out duration-500 justify-center ${!show? "-translate-y-20" : "translate-y-20"} items-center w-full h-[100vh] lg:h-[80vh] flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none`}>
+       <div onClick={(e)=> e.stopPropagation()} className="flex flex-col lg:w-3/5 w-full mx-5 lg:mx-0 bg-gray-50 gap-5 lg:p-5 p-2 shadow-lg rounded-md relative">
         <h1 className="font-semibold text-2xl text-cyan-600">Employee Details</h1>
         <div className="flex gap-3 items-center">
           <span className="font-medium text-lg">Name:</span>
