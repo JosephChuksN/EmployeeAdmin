@@ -32,16 +32,16 @@ const TableData:React.FC<props> = ({data, handleEmployeeData, deleteEmployee, se
 
   return (
    <>
-    <tr className="flex justify-between w-full p-3 border-b border-gray-900 cursor-pointer" key={data._id} onClick={()=>handleModal()}>
-        <td className="w-10 mr-3 text-center"></td>
-        <td className="inline-block text-left w-[20%] capitalize" >{`${data.firstname} ${data.lastname}`}</td>
-        <td className="inline-block text-left w-[20%] ">{data.birthday}</td>
-        <td className="inline-block text-left w-[20%] ">{data.phone}</td>
-        <td className="inline-block text-left w-[20%] capitalize">{data.city}</td>
-        <td className="inline-block text-left w-[20%] ">
-        <span className="flex justify-start gap-10 w-full" onClick={(e)=> e.stopPropagation()}>
-            <img onClick={()=>handleEmployeeEdit()} src={Pen} alt="edit svg" className="bg-cyan-600 p-1 rounded-md transition-all delay-75 duration-300 ease-in-out hover:bg-cyan-600/70" />
-            <img onClick={()=>deleteEmployee(data._id)} src={trash} alt="trash svg" className="bg-cyan-600 p-1 rounded-md transition-all delay-75 duration-300 ease-in-out hover:bg-cyan-600/70" />
+    <tr className="flex justify-between w-full p-1 lg:p-3 border-b border-gray-900 cursor-pointer" key={data._id} onClick={()=>handleModal()}>
+        <td className="lg:w-10 mr-3 text-center"></td>
+        <td className="inline-block text-left lg:w-[20%] capitalize lg:text-base text-sm" >{`${data.firstname} ${data.lastname}`}</td>
+        <td className="inline-block text-left lg:w-[20%]  lg:text-base text-sm">{data.birthday}</td>
+        <td className="inline-block text-left lg:w-[20%] lg:text-base text-sm">{data.phone}</td>
+        <td className="inline-block text-left lg:w-[20%]  lg:text-base text-sm capitalize">{data.city}</td>
+        <td className="inline-block text-left lg:w-[20%]  lg:text-base text-sm mx-auto pl-1 lg:pl-0 ">
+        <span className="flex justify-center lg:justify-start gap-2  lg:gap-10 w-full" onClick={(e)=> e.stopPropagation()}>
+            <img onClick={()=>handleEmployeeEdit()} src={Pen} alt="edit svg" className="bg-cyan-600 lg:p-1 p-0.5 rounded-md transition-all delay-75 duration-300 ease-in-out hover:bg-cyan-600/70" />
+            <img onClick={()=>deleteEmployee(data._id)} src={trash} alt="trash svg" className="bg-cyan-600 p-0.5 lg:p-1 rounded-md transition-all delay-75 duration-300 ease-in-out hover:bg-cyan-600/70" />
         </span>
         </td>
     </tr>

@@ -16,7 +16,7 @@ interface props{
 
 const EmployeeTable:React.FC<props> = ({handleShowForm, show, employees, handleEmployeeData, deleteEmployee, setEmployee, setId, setShow}) => {
   return (
-    <table className={` mt-20 flex items-center flex-col border border-cyan-600 rounded-md transition-all delay-200 duration-300 ease-in-out  ${!show? "-translate-y-36" : ""}`}>
+    <table className={` mt-20 flex items-center flex-col border border-cyan-600 rounded-md transition-all delay-200 duration-300 ease-in-out  ${!show? "lg:-translate-y-36 -translate-y-[30rem]" : ""}`}>
       <thead className="w-full ">
         <TableHead />
       </thead>

@@ -56,7 +56,7 @@ useEffect(()=>{
 
 
   return (
-    <div className="px-20 pt-10">
+    <div className="lg:px-20 pt-10 px-2">
       <div className="flex items-center justify-center">
       <h1 className="font-semibold text-3xl text-cyan-600">Employee Admin</h1>
       </div>
