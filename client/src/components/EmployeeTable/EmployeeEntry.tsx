@@ -34,6 +34,7 @@ const handleClear = ()=>{
 
   return (
     <form  className={` flex pt-10  flex-col transition-all delay-150 duration-300 ease-in-out w-full ${show ?  "opacity-100  visible" : " opacity-0 invisible"}`}>
+      <span className="w-full p-2 lg:p-3 border border-red-600 bg-red-600/5 flex item-center justify-center rounded-md text-red-600 text-lg lg:text-2xl font-medium capitalize">Error</span>
         <div className="flex flex-col lg:flex-row flex-wrap gap-5 py-4 w-full">
             <input  className="shadow-md rounded-md p-2 lg:w-[20%]  focus:outline-none focus:border-cyan-500 focus:border" type="text" value={employee.firstname} name="firstname" placeholder="Firstname" onChange={(e:React.ChangeEvent)=>handleChange(e)} required />
             <input  className="shadow-md rounded-md p-2 lg:w-[20%]  focus:outline-none focus:border-cyan-500 focus:border" type="text" value={employee.lastname}  name="lastname"  placeholder="Lastname" onChange={(e:React.ChangeEvent)=>handleChange(e)} required />
