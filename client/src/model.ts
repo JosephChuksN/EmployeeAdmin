@@ -1,7 +1,7 @@
 export interface employeeData{
     firstname:string
     lastname:string
-    phone:string
+    phone:string | undefined
     birthday:string
     address:string
     city:string

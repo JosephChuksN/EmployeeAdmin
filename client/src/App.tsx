@@ -10,6 +10,7 @@ function App() {
   const [employees, setEmployees] = useState<data[]| []>([])
   const [employee, setEmployee] = useState<data>(dummyData)
   const [id, setId] = useState<string>("")
+  const [error, setError] = useState<string>("")
 
   const getEmployees = async ():Promise<void>=>{
 
@@ -20,8 +21,13 @@ function App() {
   }
 
   const addEmployee = async (employeeData:employeeData):Promise<void>=>{
-    await axios.post("https://employeeadmin.onrender.com/api/v1/employees/", employeeData)
-     getEmployees()
+   try {
+    await axios.post("http://localhost:5000/api/v1/employees/", employeeData)
+    getEmployees()
+   } catch (error:any) {
+   
+    setError(error.response.data.msg)
+   }
   }
 
   const editEmployee = async (employeeData:employeeData):Promise<void>=>{
@@ -66,6 +72,7 @@ useEffect(()=>{
       handleShowForm={handleShowForm} 
       handleEmployeeData={handleEmployeeData}
       show={show} 
+      error={error}
      
       />
       <EmployeeTable  

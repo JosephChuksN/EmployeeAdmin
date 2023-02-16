@@ -4,7 +4,7 @@ import { data } from "./model"
 export const dummyData:data={
     firstname:"",
     lastname:"",
-    phone:"",
+    phone:"" || undefined,
     birthday: Date(),
     address:"",
     city:"",
