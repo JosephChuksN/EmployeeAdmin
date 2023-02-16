@@ -12,6 +12,10 @@ function App() {
   const [id, setId] = useState<string>("")
   const [error, setError] = useState<string>("")
 
+  const handleShowForm = ():void=>(
+    setShow(!show)
+)
+
   const getEmployees = async ():Promise<void>=>{
 
     const {data} = await axios.get("https://employeeadmin.onrender.com/api/v1/employees/")
@@ -22,7 +26,7 @@ function App() {
 
   const addEmployee = async (employeeData:employeeData):Promise<void>=>{
    try {
-    await axios.post("http://localhost:5000/api/v1/employees/", employeeData)
+    await axios.post("https://employeeadmin.onrender.com/api/v1/employees/", employeeData)
     getEmployees()
    } catch (error:any) {
    
@@ -39,7 +43,7 @@ function App() {
 
 const deleteEmployee = async (id:string):Promise<void>=>{
   axios.delete(`https://employeeadmin.onrender.com/api/v1/employees/${id}`)
-  await getEmployees()
+  getEmployees()
 
 }
 
@@ -51,9 +55,6 @@ const handleEmployeeData = async (employeeData:employeeData):Promise<void>=>{
     }
 }
 
-const handleShowForm = ():void=>(
-    setShow(!show)
-)
 
 useEffect(()=>{
  getEmployees()
