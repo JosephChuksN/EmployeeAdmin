@@ -36,7 +36,7 @@ const createEmployee = async (req:Request, res:Response):Promise<void> =>{
     }})
    }
    
-   const updateEmployee = async (req:Request, res:Response):Promise<void>  =>{
+   const updateEmployee = async (req:Request, res:Response):Promise<Response<any, Record<string, any>> | undefined> =>{
     const {
      body:{firstname, lastname, phone, birthday, address, city, zipCode},
      params: {id: employeeId}
@@ -46,22 +46,22 @@ const createEmployee = async (req:Request, res:Response):Promise<void> =>{
       try {
         
     if(!firstname || !lastname || !phone || !birthday || !address || !city || !zipCode){
-        res.status(StatusCodes.BAD_REQUEST).json({msg:"all field must be filled"})
+      return  res.status(StatusCodes.BAD_REQUEST).json({msg:"all field must be filled"})
       }
       if(firstname.length < 3 || lastname.length < 3 ){
-         res.status(StatusCodes.BAD_REQUEST).json({msg: "firstname and lastname should be above 3 characters"})
+        return   res.status(StatusCodes.BAD_REQUEST).json({msg: "firstname and lastname should be above 3 characters"})
       }
       if(zipCode.length < 4 ){
-          res.status(StatusCodes.BAD_REQUEST).json({msg: "firstname and lastname should be above 3 characters"})
+        return    res.status(StatusCodes.BAD_REQUEST).json({msg: "firstname and lastname should be above 3 characters"})
       }
       if(city.length < 3 ){
-          res.status(StatusCodes.BAD_REQUEST).json({msg: "please a valid city name"})
+        return    res.status(StatusCodes.BAD_REQUEST).json({msg: "please a valid city name"})
       }   
       if(!isValidAddress){
-          res.status(StatusCodes.BAD_REQUEST).json({msg:"Please enter a valid address"})
+        return    res.status(StatusCodes.BAD_REQUEST).json({msg:"Please enter a valid address"})
       }
       const employee = await Employees.findByIdAndUpdate({_id:employeeId}, req.body, {new:true, runValidators:true} )
-      res.status(StatusCodes.OK).json({employee})
+      return    res.status(StatusCodes.OK).json({employee})
       } catch (error) {
         console.log(error)
       }
